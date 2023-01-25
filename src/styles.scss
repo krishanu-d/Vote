@@ -35,21 +35,62 @@ $Vote-theme: mat.define-light-theme((color: (primary: $Vote-primary,
 /* You can add global styles to this file, and also import other style files */
 :root {
   --purple: #8275BD;
-  --lighYellow: #F8FFE5;
+  --lighYellow: #fff0e5;
   --blueGreen: #9CE7D9;
   --black: #000000;
   --lightgrey: #333333;
-  --blue: #3083DC;
+  --blue: #10162f;
   --lightgreen: #7DDE92;
 }
 
+$bg-color: #ffffff;
+$dot-color: #000002;
+
+// Dimensions
+$dot-size: 1.5px;
+$dot-space: 3px;
 
 
 body {
   padding: 0;
   margin: 0;
-  background-color: #9CE7D9;
+  background-color: #fff0e5;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 
 }
+
+.mat-drawer {
+  transform: none !important;
+}
+
+.sidebar {
+  width: 250px;
+  // background-color: #003456;
+  border: 0 !important;
+}
+
+.dot-bg {
+  background:
+    linear-gradient(90deg, $bg-color (
+      $dot-space - $dot-size),
+    transparent 1%) center,
+    linear-gradient($bg-color (
+      $dot-space - $dot-size),
+    transparent 1%) center,
+    #10162f;
+  background-size: $dot-space $dot-space;
+}
+
+.invert-dot-bg {
+  background:
+    linear-gradient(90deg, $dot-color (
+      $dot-space - $dot-size),
+    transparent 1%) center,
+    linear-gradient($dot-color (
+      $dot-space - $dot-size),
+    transparent 1%) center,
+    $bg-color;
+  background-size: $dot-space $dot-space;
+}
+
 

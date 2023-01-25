@@ -9,12 +9,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialModule } from './module/material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CurrentElectionComponent } from './current-election/current-election.component';
+import { NavComponent } from './nav/nav.component';
+import { PastComponent } from './past/past.component';
+import { UpcomingComponent } from './upcoming/upcoming.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    CurrentElectionComponent,
+    NavComponent,
+    PastComponent,
+    UpcomingComponent
   ],
   imports: [
     BrowserModule,

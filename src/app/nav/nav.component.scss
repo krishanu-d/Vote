@@ -1,0 +1,35 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav-content-bar {
+    padding: 0.5rem 1rem;
+    color: #000;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+
+    &.active {
+        color: #fff;
+        background-color: #000000;
+    }
+
+    &:hover {
+        color: black;
+        transition: all 250ms;
+        background-color: #ffffff67;
+    }
+}
+
+.intro-box {
+    height: 100px;
+    background-color: var(--lightyellow);
+    display: flex;
+    // align-items: center;
+    width: 100%;
+}

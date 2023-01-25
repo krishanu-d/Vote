@@ -1,10 +1,96 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
-.container{
-    position: absolute;
- background-color: black;
- height:95vh ;
- width: 95vw;
- bottom: 0;
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #9CE7D9;
+}
+
+.main-container {
+    padding-top: 20px;
+    padding-inline: 100px;
+    background-image: url('../../assets/Images/4585.jpg');
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.card {
+    width: 18rem;
+}
+
+.example-container {
+    width: 100%;
+    height: 100vh;
+    background-color: #9CE7D9;
+}
+
+.sidenav {
+    width: 250px;
+}
+
+.toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 25px 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.nav {
+    .active-link {
+        background-color: #fafafa;
+        border-left: solid 3px #1976d2;
+    }
+
+    .hover {
+        transition-duration: 400ms;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-property: transform, border, background-color;
+    }
+
+    mat-list-item,
+    a {
+        border: none;
+        box-sizing: border-box;
+        text-decoration: none;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+            border-left: solid 3px #1976d2;
+        }
+    }
+
+    mat-icon {
+        color: #1976d2;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .cardContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 14rem;
+        margin-bottom: 20px;
+    }
 
 }

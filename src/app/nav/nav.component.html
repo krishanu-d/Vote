@@ -1,0 +1,21 @@
+<mat-sidenav-container class="example-container">
+    
+    <mat-sidenav #sidenav mode="side" class="sidebar dot-bg" [(opened)]="opened" [fixedInViewport]="true">
+        <div class="intro-box">
+             <img class="" src="../../assets/Images/election.png" alt="Card image cap" style="background-repeat: no-repeat;
+            background-size: contain;">
+        </div>
+        <div *ngFor="let d of routes" class="nav-content-bar" [routerLink]="d.path" routerLinkActive="active">
+            <span>{{d.name}}</span>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <!-- <mat-toolbar class="bg-success">
+            <span>{{}}</span>
+        </mat-toolbar> -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div> -->

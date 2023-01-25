@@ -1,41 +1,49 @@
-<div class="header">
-    <div class="inner-header flex">
+<div class="header ">
+    <div class="inner-header dot-bg flex">
         <div class="container">
 
             <h1 class="vote">V O T E</h1>
             <div class="data" *ngIf="!otpsent">
-                <mat-form-field class="inputData" appearance="outline" >
-                    <mat-label>Voter Id Number</mat-label> 
-                    <input matInput [formControl]="voterId" required >
+                <mat-form-field class="inputData" appearance="outline">
+                    <mat-label>Voter Id Number</mat-label>
+                    <input matInput [formControl]="voterId" required>
                     <mat-error *ngIf="number.invalid">{{getVoterIdErrorMessage()}}</mat-error>
                 </mat-form-field>
                 <mat-form-field class="inputData" appearance="outline">
                     <mat-label>Phone No.</mat-label>
-                    <input matInput placeholder="764** *****" [formControl]="number" type="text" required (keypress)="onlyNumeric($event)" maxlength="10">
+                    <input matInput placeholder="764** *****" [formControl]="number" type="text" required
+                        (keypress)="onlyNumeric($event)" (keyup)="checkMobile()" [(ngModel)]="mobile" minlength="10"
+                        maxlength="10">
                     <mat-error *ngIf="number.invalid">{{getNumberErrorMessage()}}</mat-error>
                 </mat-form-field>
-                    <div class="example-button-row">
-                        <button mat-raised-button class="getotp" (click)="getotp()">Get OTP</button>
-                    </div>
+                
+                <div class="example-button-row">
+                    <button mat-raised-button class="getotp" (click)="getotp()">Get OTP</button>
+                </div>
             </div>
 
 
 
-            <div class="data"   *ngIf="otpsent">
+            <div class="data" *ngIf="otpsent">
 
                 <mat-form-field class="inputData" appearance="outline" >
-                    <mat-label>Enter OTP</mat-label> 
-                    <input matInput [formControl]="OTP" required maxlength="6" type="text" (keypress)="onlyNumeric($event)">
+                    <mat-label>Enter OTP</mat-label>
+                    <input matInput [formControl]="OTP" required minlength="6" maxlength="6" type="text"
+                        (keypress)="onlyNumeric($event)">
                     <mat-error *ngIf="OTP.invalid">{{getOTPErrorMessage()}}</mat-error>
                 </mat-form-field>
-                <p>Time left = {{transform(counter)}}</p>
+                <div style="height: 20px;">
+
+                    <p *ngIf="isDisabled">Resend OTP in {{transform(counter)}}</p>
+                </div>
 
                 <div class="otp">
                     <div class="example-button-column">
-                        <button mat-raised-button class="getotp" (click)="submitOTP()"  >Submit OTP</button>
+                        <button mat-raised-button class="getotp" (click)="submitOTP()">Submit OTP</button>
                     </div>
                     <div class="example-button-column">
-                        <button mat-raised-button class="getotp" (click)="submitOTP()" [disabled]="isDisabled">Resend OTP</button>
+                        <button mat-raised-button class="resendotp" (click)="resendOTP()" [disabled]="isDisabled">Resend
+                            OTP</button>
                     </div>
                 </div>
 
@@ -44,22 +52,4 @@
 
         </div>
     </div>
-    <div class="bottom">
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-            <defs>
-                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-            </defs>
-            <g class="parallax">
-                <use xlink:href="#gentle-wave" x="48" y="0" fill="#8CE3D3" />
-                <use xlink:href="#gentle-wave" x="48" y="3" fill="#7CDFCD" />
-                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.7)" />
-                <use xlink:href="#gentle-wave" x="48" y="7" fill="#9CE7D9" />
-            </g>
-        </svg>
-    </div>
-
-
 </div>
-<!-- <div class="base">
-</div> -->
